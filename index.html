@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Life Experience Survey</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>School Life Experience Survey</h1>
+            <p>Help us understand your school experience by sharing your thoughts and experiences</p>
+        </header>
+
+        <form id="surveyForm" class="survey-form">
+            <!-- Personal Information -->
+            <section class="form-section">
+                <h2>Personal Information</h2>
+                <div class="form-group">
+                    <label for="age">Age Range:</label>
+                    <select id="age" name="age" required>
+                        <option value="">Select your age range</option>
+                        <option value="13-15">13-15 years</option>
+                        <option value="16-18">16-18 years</option>
+                        <option value="19-22">19-22 years</option>
+                        <option value="23+">23+ years</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">Current/Last Grade Level:</label>
+                    <select id="grade" name="grade" required>
+                        <option value="">Select grade level</option>
+                        <option value="9th">9th Grade</option>
+                        <option value="10th">10th Grade</option>
+                        <option value="11th">11th Grade</option>
+                        <option value="12th">12th Grade</option>
+                        <option value="college">College/University</option>
+                        <option value="graduated">Graduated</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="schoolType">Type of School:</label>
+                    <select id="schoolType" name="schoolType" required>
+                        <option value="">Select school type</option>
+                        <option value="public">Public School</option>
+                        <option value="private">Private School</option>
+                        <option value="charter">Charter School</option>
+                        <option value="homeschool">Homeschool</option>
+                        <option value="online">Online School</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Academic Experience -->
+            <section class="form-section">
+                <h2>Academic Experience</h2>
+                
+                <div class="form-group">
+                    <label>How would you rate your overall academic performance?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="academicPerformance" value="excellent" required> Excellent</label>
+                        <label><input type="radio" name="academicPerformance" value="good" required> Good</label>
+                        <label><input type="radio" name="academicPerformance" value="average" required> Average</label>
+                        <label><input type="radio" name="academicPerformance" value="belowAverage" required> Below Average</label>
+                        <label><input type="radio" name="academicPerformance" value="struggling" required> Struggling</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What subjects do you enjoy most? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="favoriteSubjects" value="math"> Mathematics</label>
+                        <label><input type="checkbox" name="favoriteSubjects" value="science"> Science</label>
+                        <label><input type="checkbox" name="favoriteSubjects" value="english"> English/Language Arts</label>
+                        <label><input type="checkbox" name="favoriteSubjects" value="history"> History/Social Studies</label>
+                        <label><input type="checkbox" name="favoriteSubjects" value="art"> Art</label>
+                        <label><input type="checkbox" name="favoriteSubjects" value="music"> Music</label>
+                        <label><input type="checkbox" name="favoriteSubjects" value="pe"> Physical Education</label>
+                        <label><input type="checkbox" name="favoriteSubjects" value="foreignLanguage"> Foreign Language</label>
+                        <label><input type="checkbox" name="favoriteSubjects" value="computer"> Computer Science</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="studyTime">How many hours do you typically spend studying per day?</label>
+                    <select id="studyTime" name="studyTime" required>
+                        <option value="">Select study time</option>
+                        <option value="0-1">0-1 hours</option>
+                        <option value="1-2">1-2 hours</option>
+                        <option value="2-3">2-3 hours</option>
+                        <option value="3-4">3-4 hours</option>
+                        <option value="4+">4+ hours</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>What is your biggest academic challenge?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="academicChallenge" value="timeManagement" required> Time Management</label>
+                        <label><input type="radio" name="academicChallenge" value="understandingMaterial" required> Understanding Material</label>
+                        <label><input type="radio" name="academicChallenge" value="testAnxiety" required> Test Anxiety</label>
+                        <label><input type="radio" name="academicChallenge" value="motivation" required> Lack of Motivation</label>
+                        <label><input type="radio" name="academicChallenge" value="homework" required> Too Much Homework</label>
+                        <label><input type="radio" name="academicChallenge" value="none" required> No Major Challenges</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Experience -->
+            <section class="form-section">
+                <h2>Social Experience</h2>
+                
+                <div class="form-group">
+                    <label>How would you describe your social life at school?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="socialLife" value="veryActive" required> Very Active - Many Friends</label>
+                        <label><input type="radio" name="socialLife" value="active" required> Active - Good Friends</label>
+                        <label><input type="radio" name="socialLife" value="moderate" required> Moderate - Some Friends</label>
+                        <label><input type="radio" name="socialLife" value="limited" required> Limited - Few Friends</label>
+                        <label><input type="radio" name="socialLife" value="isolated" required> Isolated - Very Few Friends</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Are you involved in any extracurricular activities? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="extracurriculars" value="sports"> Sports Teams</label>
+                        <label><input type="checkbox" name="extracurriculars" value="clubs"> Clubs</label>
+                        <label><input type="checkbox" name="extracurriculars" value="studentGovernment"> Student Government</label>
+                        <label><input type="checkbox" name="extracurriculars" value="band"> Band/Orchestra</label>
+                        <label><input type="checkbox" name="extracurriculars" value="drama"> Drama/Theater</label>
+                        <label><input type="checkbox" name="extracurriculars" value="volunteer"> Volunteer Work</label>
+                        <label><input type="checkbox" name="extracurriculars" value="none"> None</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Have you experienced bullying or harassment at school?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="bullying" value="never" required> Never</label>
+                        <label><input type="radio" name="bullying" value="rarely" required> Rarely</label>
+                        <label><input type="radio" name="bullying" value="sometimes" required> Sometimes</label>
+                        <label><input type="radio" name="bullying" value="often" required> Often</label>
+                        <label><input type="radio" name="bullying" value="preferNotToSay" required> Prefer Not to Say</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- School Environment -->
+            <section class="form-section">
+                <h2>School Environment</h2>
+                
+                <div class="form-group">
+                    <label>How would you rate your school's facilities?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="facilities" value="excellent" required> Excellent</label>
+                        <label><input type="radio" name="facilities" value="good" required> Good</label>
+                        <label><input type="radio" name="facilities" value="average" required> Average</label>
+                        <label><input type="radio" name="facilities" value="poor" required> Poor</label>
+                        <label><input type="radio" name="facilities" value="veryPoor" required> Very Poor</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>How would you rate your teachers overall?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="teachers" value="excellent" required> Excellent</label>
+                        <label><input type="radio" name="teachers" value="good" required> Good</label>
+                        <label><input type="radio" name="teachers" value="average" required> Average</label>
+                        <label><input type="radio" name="teachers" value="poor" required> Poor</label>
+                        <label><input type="radio" name="teachers" value="veryPoor" required> Very Poor</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>How safe do you feel at school?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="safety" value="verySafe" required> Very Safe</label>
+                        <label><input type="radio" name="safety" value="safe" required> Safe</label>
+                        <label><input type="radio" name="safety" value="neutral" required> Neutral</label>
+                        <label><input type="radio" name="safety" value="unsafe" required> Unsafe</label>
+                        <label><input type="radio" name="safety" value="veryUnsafe" required> Very Unsafe</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Future Plans -->
+            <section class="form-section">
+                <h2>Future Plans</h2>
+                
+                <div class="form-group">
+                    <label>What are your plans after graduation?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="futurePlans" value="college" required> Attend College/University</label>
+                        <label><input type="radio" name="futurePlans" value="tradeSchool" required> Trade School</label>
+                        <label><input type="radio" name="futurePlans" value="work" required> Enter Workforce</label>
+                        <label><input type="radio" name="futurePlans" value="military" required> Military Service</label>
+                        <label><input type="radio" name="futurePlans" value="gapYear" required> Gap Year</label>
+                        <label><input type="radio" name="futurePlans" value="unsure" required> Unsure</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>How well do you feel school has prepared you for your future?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="preparation" value="veryWell" required> Very Well</label>
+                        <label><input type="radio" name="preparation" value="well" required> Well</label>
+                        <label><input type="radio" name="preparation" value="somewhat" required> Somewhat</label>
+                        <label><input type="radio" name="preparation" value="poorly" required> Poorly</label>
+                        <label><input type="radio" name="preparation" value="notAtAll" required> Not at All</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Comments -->
+            <section class="form-section">
+                <h2>Additional Comments</h2>
+                
+                <div class="form-group">
+                    <label for="bestExperience">What has been your best experience in school?</label>
+                    <textarea id="bestExperience" name="bestExperience" rows="4" placeholder="Share your most positive school experience..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="worstExperience">What has been your most challenging experience in school?</label>
+                    <textarea id="worstExperience" name="worstExperience" rows="4" placeholder="Share any challenges you've faced..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="suggestions">What suggestions do you have to improve school life?</label>
+                    <textarea id="suggestions" name="suggestions" rows="4" placeholder="Share your ideas for improvement..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="additionalComments">Any additional comments or thoughts?</label>
+                    <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Share any other thoughts about your school experience..."></textarea>
+                </div>
+            </section>
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">Submit Survey</button>
+                <button type="button" class="reset-btn" onclick="resetForm()">Reset Form</button>
+            </div>
+        </form>
+
+        <!-- Results Display -->
+        <div id="results" class="results-section" style="display: none;">
+            <h2>Thank You!</h2>
+            <p>Your responses have been recorded and sent to the survey administrator.</p>
+            <div id="summaryResults"></div>
+            <div id="emailStatus" class="email-status"></div>
+            <div class="export-actions">
+                <button type="button" class="excel-btn" onclick="exportToExcel()">📊 Download Excel Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
